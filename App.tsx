@@ -1,5 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {ActivityIndicator, Button, View, StyleSheet} from 'react-native';
+import {
+  ActivityIndicator,
+  Button,
+  View,
+  StyleSheet,
+  SafeAreaView,
+} from 'react-native';
 import WebView from 'react-native-webview';
 import {WEB_URL} from '@env';
 
@@ -25,7 +31,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <WebView
         ref={webViewRef}
         source={{uri: url}}
@@ -37,7 +43,7 @@ const App: React.FC = () => {
         )}
         renderError={() => <Button title="Retry" onPress={handleRetry} />}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
